@@ -1,2 +1,6 @@
 target
 pom.xml
+lib
+.classpath
+.project
+.settings
