@@ -5,6 +5,9 @@
  */
 package serpientesescaleras.interfazGrafica;
 
+import java.util.Random;
+import serpientesescaleras.tablero.Tablero;
+
 /**
  *
  * @author CIROSS
@@ -27,12 +30,17 @@ public class Juego extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTable = new javax.swing.JTable();
         jLbDado = new javax.swing.JLabel();
         jBtnLanzar = new javax.swing.JButton();
         jBtnDetener = new javax.swing.JButton();
+        jLbFilas = new javax.swing.JLabel();
+        jTxtNumFilas = new javax.swing.JTextField();
+        jLbColumnas = new javax.swing.JLabel();
+        jTxtNumColumnas = new javax.swing.JTextField();
+        jBtnCrearTablero = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuIr = new javax.swing.JMenu();
         jMenuItemInicio = new javax.swing.JMenuItem();
@@ -40,21 +48,22 @@ public class Juego extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 153));
+        jPanel.setBackground(new java.awt.Color(255, 204, 153));
+        jPanel.setOpaque(false);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
+        jPanel.setLayout(jPanelLayout);
+        jPanelLayout.setHorizontalGroup(
+            jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 500, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelLayout.setVerticalGroup(
+            jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 500, Short.MAX_VALUE)
         );
 
-        jTable1.setBackground(new java.awt.Color(255, 102, 51));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable.setBackground(new java.awt.Color(255, 102, 51));
+        jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -65,10 +74,10 @@ public class Juego extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTable);
 
         jLbDado.setBackground(new java.awt.Color(255, 255, 255));
-        jLbDado.setOpaque(true);
+        jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/dado 6.jpg"))); // NOI18N
 
         jBtnLanzar.setText("Lanzar");
         jBtnLanzar.addActionListener(new java.awt.event.ActionListener() {
@@ -82,6 +91,26 @@ public class Juego extends javax.swing.JFrame {
         jBtnDetener.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnDetenerActionPerformed(evt);
+            }
+        });
+
+        jLbFilas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLbFilas.setText("Filas:");
+
+        jTxtNumFilas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTxtNumFilas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jLbColumnas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLbColumnas.setText("Columnas:");
+
+        jTxtNumColumnas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTxtNumColumnas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jBtnCrearTablero.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jBtnCrearTablero.setText("Crear Tablero");
+        jBtnCrearTablero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnCrearTableroActionPerformed(evt);
             }
         });
 
@@ -113,48 +142,87 @@ public class Juego extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLbFilas)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTxtNumFilas, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLbColumnas)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTxtNumColumnas, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jBtnCrearTablero))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLbDado, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLbDado)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jBtnLanzar)
                                 .addGap(8, 8, 8)
-                                .addComponent(jBtnDetener)))))
-                .addContainerGap(35, Short.MAX_VALUE))
+                                .addComponent(jBtnDetener)))
+                        .addGap(114, 114, 114))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLbFilas, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTxtNumFilas, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLbColumnas, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTxtNumColumnas, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jBtnCrearTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(jLbDado, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLbDado)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jBtnLanzar)
                             .addComponent(jBtnDetener)))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnLanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLanzarActionPerformed
-        //jLbDado.setIcon(new javax.swing.(getClass().getResource("/interfazGrafica/images/dado gif.gif")));
-        //this.jLbDado.setIcon(getClass().getResource("/interfazGrafica/images/dado 5.jpg"));
+        jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/dado gif dorado.gif")));
+        jBtnLanzar.setEnabled(false);
+        jBtnDetener.setEnabled(true);
     }//GEN-LAST:event_jBtnLanzarActionPerformed
 
+    Random rnd = new Random();
     private void jBtnDetenerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDetenerActionPerformed
-        // TODO add your handling code here:
+        int dado = rnd.nextInt(6);
+        if (dado==0) {
+            jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/dado 1.jpg")));
+        } else if (dado==1) {
+            jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/dado 2.jpg")));
+        } else if (dado==2) {
+            jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/dado 3.jpg")));
+        } else if (dado==3) {
+            jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/dado 4.jpg")));
+        } else if (dado==4) {
+            jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/dado 5.jpg")));
+        } else if (dado==5) {
+            jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/dado 6.jpg")));
+        }
+        jBtnLanzar.setEnabled(true);
+        jBtnDetener.setEnabled(false);
     }//GEN-LAST:event_jBtnDetenerActionPerformed
 
     private void jMenuItemInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemInicioActionPerformed
@@ -169,17 +237,27 @@ public class Juego extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jMenuItemJugadoresActionPerformed
 
+    private void jBtnCrearTableroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCrearTableroActionPerformed
+        Tablero tablero = new Tablero(jPanel);
+        tablero.crearMatriz(Integer.parseInt(jTxtNumFilas.getText()), Integer.parseInt(jTxtNumColumnas.getText()));
+    }//GEN-LAST:event_jBtnCrearTableroActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnCrearTablero;
     private javax.swing.JButton jBtnDetener;
     private javax.swing.JButton jBtnLanzar;
+    private javax.swing.JLabel jLbColumnas;
     private javax.swing.JLabel jLbDado;
+    private javax.swing.JLabel jLbFilas;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuIr;
     private javax.swing.JMenuItem jMenuItemInicio;
     private javax.swing.JMenuItem jMenuItemJugadores;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable;
+    private javax.swing.JTextField jTxtNumColumnas;
+    private javax.swing.JTextField jTxtNumFilas;
     // End of variables declaration//GEN-END:variables
 }
