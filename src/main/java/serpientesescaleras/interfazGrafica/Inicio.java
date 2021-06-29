@@ -30,18 +30,24 @@ public class Inicio extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLblBienvenida = new javax.swing.JLabel();
+        jLbTitulo = new javax.swing.JLabel();
         jBtnPartida = new javax.swing.JButton();
         jBtnJugadores = new javax.swing.JButton();
-        jLbTitulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+    //  jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLblBienvenida.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLblBienvenida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLblBienvenida.setText("Bienvenidos a:");
         jPanel1.add(jLblBienvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 100, 450, -1));
+
+        jLbTitulo.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLbTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbTitulo.setText("Serpientes y Escaleras");
+        jPanel1.add(jLbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 450, -1));
 
         jBtnPartida.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jBtnPartida.setText("Iniciar Partida");
@@ -61,43 +67,35 @@ public class Inicio extends javax.swing.JFrame {
         });
         jPanel1.add(jBtnJugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, -1, 30));
 
-        jLbTitulo.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jLbTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLbTitulo.setText("Serpientes y Escaleras");
-        jPanel1.add(jLbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 450, -1));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 487, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jBtnPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPartidaActionPerformed
-        Juego juego = new Juego();
-        juego.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jBtnPartidaActionPerformed
 
     private void jBtnJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnJugadoresActionPerformed
         JugadoresFrm tabla = new JugadoresFrm();
         tabla.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jBtnJugadoresActionPerformed
+
+    private void jBtnPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPartidaActionPerformed
+        Juego juego = new Juego();
+        juego.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jBtnPartidaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnJugadores;
