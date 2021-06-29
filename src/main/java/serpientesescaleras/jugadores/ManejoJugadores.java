@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author CIROSS
  */
 public class ManejoJugadores {
-        private ArrayList<Jugador> jugadores = new ArrayList<>();
+    private ArrayList<Jugador> jugadores = new ArrayList<>();
 
     public ManejoJugadores() {
 
