@@ -6,15 +6,35 @@
 package serpientesescaleras.tablero.casillas;
 
 import javax.swing.JLabel;
+import serpientesescaleras.tablero.Formato;
+import serpientesescaleras.tablero.fichas.Ficha;
 
 /**
  *
  * @author CIROSS
  */
-public abstract class Casilla {
+public abstract class Casilla implements Formato {
     
     private int numeroCasilla, fila, columna;
     private JLabel lblCasilla;
+    private Ficha fichaJugador;    
+
+    public Ficha getFichaJugador() {
+        return fichaJugador;
+    }
+
+    public void setFichaJugador(Ficha fichaJugador) {
+        this.fichaJugador = fichaJugador;
+    }
+
+    public boolean isTieneFicha() {
+        return tieneFicha;
+    }
+
+    public void setTieneFicha(boolean tieneFicha) {
+        this.tieneFicha = tieneFicha;
+    }
+    private boolean tieneFicha;
 
     public Casilla(int numeroCasilla, int fila, int columna, JLabel lblCasilla) {
         this.numeroCasilla = numeroCasilla;
@@ -28,8 +48,18 @@ public abstract class Casilla {
         this.columna = columna;
     }
 
+    @Override
+    public void definirFormatoGeneral() {
+        definirNumeroCasilla();
+        definirFila();
+        definirColumna();
+    }
     
-    
+    @Override
+    public void definirFicha(Ficha fichaJugador) {       
+        getLblCasilla().setIcon(fichaJugador.getIcono());       
+    }
+  
     public int getNumeroCasilla() {
         return numeroCasilla;
     }
