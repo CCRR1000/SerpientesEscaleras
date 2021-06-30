@@ -23,10 +23,8 @@ public class Inicio extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         
-        //ImageIcon img = new ImageIcon("/serpientesescaleras/interfazGrafica/images/lago-cueva-serpientes.jpg");
-        //Icon icono = new ImageIcon(img.getImage().getScaledInstance(jLbFondo.getWidth(), jLbFondo.getHeight(), Image.SCALE_SMOOTH));
-        //jLbFondo.setIcon(icono);
-        //this.repaint();
+        ImageIcon icono = new ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/Serpiente.png"));
+        setIconImage(icono.getImage());
     }
 
     /**
@@ -46,6 +44,7 @@ public class Inicio extends javax.swing.JFrame {
         jLbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Serpientes y Escaleras");
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

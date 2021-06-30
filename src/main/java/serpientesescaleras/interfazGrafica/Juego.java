@@ -6,6 +6,7 @@
 package serpientesescaleras.interfazGrafica;
 
 import java.util.Random;
+import javax.swing.ImageIcon;
 import serpientesescaleras.tablero.Tablero;
 
 /**
@@ -23,8 +24,8 @@ public class Juego extends javax.swing.JFrame {
         setSize(1000, 700);
         setResizable(false);
         
-        jTxtNumColumnas.setText(""+jPanel.getWidth());
-        jTxtNumFilas.setText(""+jPanel.getHeight());
+        ImageIcon icono = new ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/Serpiente.png"));
+        setIconImage(icono.getImage());
     }
 
     /**
@@ -54,6 +55,7 @@ public class Juego extends javax.swing.JFrame {
         jMenuItemJugadores = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Serpientes y Escaleras");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel.setBackground(new java.awt.Color(255, 204, 153));

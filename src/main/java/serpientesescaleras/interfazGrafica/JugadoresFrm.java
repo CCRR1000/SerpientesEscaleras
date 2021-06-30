@@ -34,6 +34,9 @@ public class JugadoresFrm extends javax.swing.JFrame {
         this.setResizable(false);
         listaJugadores = manejoJ.getJugadores();
         
+        ImageIcon icono = new ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/Serpiente.png"));
+        setIconImage(icono.getImage());
+        
         ImageIcon img = new ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/cave-in-mountain.png"));
         jLbFondo.setIcon(new ImageIcon(img.getImage().getScaledInstance(this.jLbFondo.getWidth(), this.jLbFondo.getHeight(), Image.SCALE_SMOOTH)));
         
@@ -87,6 +90,7 @@ public class JugadoresFrm extends javax.swing.JFrame {
         jMenuItemPerdidas = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Serpientes y Escaleras");
 
         jPanelJugadores.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
