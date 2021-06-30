@@ -90,18 +90,18 @@ public class Tablero {
         
         matriz[filas-1][1].setText("");
         matriz[filas-1][1].setIcon(escalarImagenCasilla("/serpientesescaleras/interfazGrafica/images/Derrumbe.png"));
-        matriz[filas-1][1].setBackground(Color.YELLOW);
+        matriz[filas-1][1].setBackground(new java.awt.Color(255, 255, 75));
         
         matriz[filas-1][3].setText("");
         matriz[filas-1][3].setIcon(escalarImagenCasilla("/serpientesescaleras/interfazGrafica/images/Agua en cueva.jpg"));
         
         matriz[filas-1][4].setText("");
         matriz[filas-1][4].setIcon(escalarImagen("/serpientesescaleras/interfazGrafica/images/Escalera.png"));
-        matriz[filas-1][4].setBackground(Color.orange);
+        matriz[filas-1][4].setBackground(new java.awt.Color(255, 125, 35));
         
         matriz[filas-1][7].setText("");
         matriz[filas-1][7].setIcon(escalarImagen("/serpientesescaleras/interfazGrafica/images/Antorcha.png"));
-        matriz[filas-1][7].setBackground(Color.lightGray);
+        matriz[filas-1][7].setBackground(new java.awt.Color(95, 160, 160));
         
         matriz[filas-2][3].setText("");
         matriz[filas-2][3].setIcon(escalarImagenCasilla("/serpientesescaleras/interfazGrafica/images/Agujero.png"));
@@ -111,7 +111,9 @@ public class Tablero {
         matriz[filas-3][4].setIcon(escalarImagen("/serpientesescaleras/interfazGrafica/images/Serpiente.png"));
         matriz[filas-3][4].setBackground(new java.awt.Color(65, 105, 50));
         
-        
+        JLabel label = new JLabel();
+        label.setIcon(escalarImagen("/serpientesescaleras/interfazGrafica/images/fichas/f _ Tower Recon.png"));
+        label.setBounds(matriz[filas-1][3].getX(), matriz[filas-1][3].getY(), matriz[filas-1][3].getWidth(), matriz[filas-1][3].getHeight());
         
         for (int i = 0 ; i < matriz.length ; i++) {
             for (int j = 0 ; j < matriz[0].length ; j++) {
@@ -120,13 +122,13 @@ public class Tablero {
             }
         }
         
-        
+        panel.add(label);
         panel.repaint();
     }
     
     public Icon escalarImagen(String ruta) {
         ImageIcon img = new ImageIcon(getClass().getResource(ruta));
-        Icon icono = new ImageIcon(img.getImage().getScaledInstance((int)(0.4*altoFila), altoFila-20, Image.SCALE_SMOOTH));        
+        Icon icono = new ImageIcon(img.getImage().getScaledInstance((int)(0.6*altoFila), altoFila-20, Image.SCALE_SMOOTH));        
         return icono;
     }
     
