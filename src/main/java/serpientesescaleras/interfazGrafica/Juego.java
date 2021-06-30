@@ -22,6 +22,9 @@ public class Juego extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setSize(1000, 700);
         setResizable(false);
+        
+        jTxtNumColumnas.setText(""+jPanel.getWidth());
+        jTxtNumFilas.setText(""+jPanel.getHeight());
     }
 
     /**
@@ -60,14 +63,14 @@ public class Juego extends javax.swing.JFrame {
         jPanel.setLayout(jPanelLayout);
         jPanelLayout.setHorizontalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 623, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
         jPanelLayout.setVerticalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 600, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        getContentPane().add(jPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 600, -1));
 
         jLbDado.setBackground(new java.awt.Color(255, 255, 255));
         jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/Dado6.png"))); // NOI18N
@@ -79,7 +82,7 @@ public class Juego extends javax.swing.JFrame {
                 jBtnLanzarActionPerformed(evt);
             }
         });
-        getContentPane().add(jBtnLanzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 600, 85, -1));
+        getContentPane().add(jBtnLanzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 570, 85, -1));
 
         jBtnDetener.setText("Detener");
         jBtnDetener.setEnabled(false);
@@ -88,7 +91,7 @@ public class Juego extends javax.swing.JFrame {
                 jBtnDetenerActionPerformed(evt);
             }
         });
-        getContentPane().add(jBtnDetener, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 600, 85, -1));
+        getContentPane().add(jBtnDetener, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 570, 85, -1));
 
         jLbFilas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLbFilas.setForeground(new java.awt.Color(255, 255, 255));
