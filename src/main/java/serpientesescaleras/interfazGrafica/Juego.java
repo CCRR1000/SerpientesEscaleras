@@ -19,6 +19,9 @@ public class Juego extends javax.swing.JFrame {
      */
     public Juego() {
         initComponents();
+        setLocationRelativeTo(null);
+        setSize(1000, 700);
+        setResizable(false);
     }
 
     /**
@@ -31,8 +34,6 @@ public class Juego extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable = new javax.swing.JTable();
         jLbDado = new javax.swing.JLabel();
         jBtnLanzar = new javax.swing.JButton();
         jBtnDetener = new javax.swing.JButton();
@@ -41,12 +42,16 @@ public class Juego extends javax.swing.JFrame {
         jLbColumnas = new javax.swing.JLabel();
         jTxtNumColumnas = new javax.swing.JTextField();
         jBtnCrearTablero = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable = new javax.swing.JTable();
+        jLbFondo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuIr = new javax.swing.JMenu();
         jMenuItemInicio = new javax.swing.JMenuItem();
         jMenuItemJugadores = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel.setBackground(new java.awt.Color(255, 204, 153));
         jPanel.setOpaque(false);
@@ -55,29 +60,18 @@ public class Juego extends javax.swing.JFrame {
         jPanel.setLayout(jPanelLayout);
         jPanelLayout.setHorizontalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 623, Short.MAX_VALUE)
         );
         jPanelLayout.setVerticalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
 
-        jTable.setBackground(new java.awt.Color(255, 102, 51));
-        jTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable);
+        getContentPane().add(jPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jLbDado.setBackground(new java.awt.Color(255, 255, 255));
-        jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/dado 6.jpg"))); // NOI18N
+        jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/Dado6.png"))); // NOI18N
+        getContentPane().add(jLbDado, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 320, 210, -1));
 
         jBtnLanzar.setText("Lanzar");
         jBtnLanzar.addActionListener(new java.awt.event.ActionListener() {
@@ -85,6 +79,7 @@ public class Juego extends javax.swing.JFrame {
                 jBtnLanzarActionPerformed(evt);
             }
         });
+        getContentPane().add(jBtnLanzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 600, 85, -1));
 
         jBtnDetener.setText("Detener");
         jBtnDetener.setEnabled(false);
@@ -93,18 +88,25 @@ public class Juego extends javax.swing.JFrame {
                 jBtnDetenerActionPerformed(evt);
             }
         });
+        getContentPane().add(jBtnDetener, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 600, 85, -1));
 
-        jLbFilas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLbFilas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLbFilas.setForeground(new java.awt.Color(255, 255, 255));
         jLbFilas.setText("Filas:");
+        getContentPane().add(jLbFilas, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 30, -1, 23));
 
         jTxtNumFilas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTxtNumFilas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(jTxtNumFilas, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 30, 37, -1));
 
-        jLbColumnas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLbColumnas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLbColumnas.setForeground(new java.awt.Color(255, 255, 255));
         jLbColumnas.setText("Columnas:");
+        getContentPane().add(jLbColumnas, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 30, -1, 23));
 
         jTxtNumColumnas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTxtNumColumnas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(jTxtNumColumnas, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 30, 37, -1));
 
         jBtnCrearTablero.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jBtnCrearTablero.setText("Crear Tablero");
@@ -113,6 +115,36 @@ public class Juego extends javax.swing.JFrame {
                 jBtnCrearTableroActionPerformed(evt);
             }
         });
+        getContentPane().add(jBtnCrearTablero, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 30, -1, 26));
+
+        jTable.setBackground(new java.awt.Color(255, 102, 51));
+        jTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Nombre", "Apellido", "Posicion"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable.setOpaque(false);
+        jScrollPane1.setViewportView(jTable);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, 320, 210));
+
+        jLbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/cave-in-mountain.png"))); // NOI18N
+        getContentPane().add(jLbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1012, -1));
+
+        jMenuBar1.setBackground(new java.awt.Color(160, 125, 75));
+        jMenuBar1.setBorder(null);
+        jMenuBar1.setBorderPainted(false);
 
         jMenuIr.setText("Ir a ...");
 
@@ -136,71 +168,11 @@ public class Juego extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLbFilas)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTxtNumFilas, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLbColumnas)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTxtNumColumnas, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jBtnCrearTablero))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(33, 33, 33))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLbDado)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jBtnLanzar)
-                                .addGap(8, 8, 8)
-                                .addComponent(jBtnDetener)))
-                        .addGap(114, 114, 114))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLbFilas, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTxtNumFilas, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLbColumnas, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jTxtNumColumnas, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jBtnCrearTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLbDado)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jBtnLanzar)
-                            .addComponent(jBtnDetener)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnLanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLanzarActionPerformed
-        jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/dado gif dorado.gif")));
+        jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/dado.gif")));
         jBtnLanzar.setEnabled(false);
         jBtnDetener.setEnabled(true);
     }//GEN-LAST:event_jBtnLanzarActionPerformed
@@ -209,17 +181,17 @@ public class Juego extends javax.swing.JFrame {
     private void jBtnDetenerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDetenerActionPerformed
         int dado = rnd.nextInt(6);
         if (dado==0) {
-            jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/dado 1.jpg")));
+            jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/Dado1.png")));
         } else if (dado==1) {
-            jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/dado 2.jpg")));
+            jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/Dado2.png")));
         } else if (dado==2) {
-            jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/dado 3.jpg")));
+            jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/Dado3.png")));
         } else if (dado==3) {
-            jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/dado 4.jpg")));
+            jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/Dado4.png")));
         } else if (dado==4) {
-            jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/dado 5.jpg")));
+            jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/Dado5.png")));
         } else if (dado==5) {
-            jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/dado 6.jpg")));
+            jLbDado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/Dado6.png")));
         }
         jBtnLanzar.setEnabled(true);
         jBtnDetener.setEnabled(false);
@@ -250,6 +222,7 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JLabel jLbColumnas;
     private javax.swing.JLabel jLbDado;
     private javax.swing.JLabel jLbFilas;
+    private javax.swing.JLabel jLbFondo;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuIr;
     private javax.swing.JMenuItem jMenuItemInicio;

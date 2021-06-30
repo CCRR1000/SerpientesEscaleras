@@ -5,7 +5,10 @@
  */
 package serpientesescaleras.interfazGrafica;
 
+import java.awt.Image;
 import java.util.ArrayList;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import serpientesescaleras.jugadores.Jugador;
@@ -28,7 +31,12 @@ public class JugadoresFrm extends javax.swing.JFrame {
     public JugadoresFrm() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
         listaJugadores = manejoJ.getJugadores();
+        
+        ImageIcon img = new ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/cave-in-mountain.png"));
+        jLbFondo.setIcon(new ImageIcon(img.getImage().getScaledInstance(this.jLbFondo.getWidth(), this.jLbFondo.getHeight(), Image.SCALE_SMOOTH)));
+        
         inicializarTabla();
     }
     
@@ -65,6 +73,7 @@ public class JugadoresFrm extends javax.swing.JFrame {
         jLbListado = new javax.swing.JLabel();
         jScrollPane = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
+        jLbFondo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuIr = new javax.swing.JMenu();
         jMenuItemInicio = new javax.swing.JMenuItem();
@@ -81,15 +90,19 @@ public class JugadoresFrm extends javax.swing.JFrame {
 
         jPanelJugadores.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLbIngresarJugador.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLbIngresarJugador.setForeground(new java.awt.Color(255, 255, 255));
         jLbIngresarJugador.setText("INGRESAR JUGADOR");
         jPanelJugadores.add(jLbIngresarJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
         jLbNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLbNombre.setForeground(new java.awt.Color(255, 255, 255));
         jLbNombre.setText("Ingrese el Nombre:");
         jLbNombre.setPreferredSize(new java.awt.Dimension(116, 60));
         jPanelJugadores.add(jLbNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, 30));
 
         jLbApellido.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLbApellido.setForeground(new java.awt.Color(255, 255, 255));
         jLbApellido.setText("Ingrese el Apellido:");
         jLbApellido.setPreferredSize(new java.awt.Dimension(116, 60));
         jPanelJugadores.add(jLbApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, 30));
@@ -109,7 +122,8 @@ public class JugadoresFrm extends javax.swing.JFrame {
         });
         jPanelJugadores.add(jBtnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, -1, -1));
 
-        jLbListado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLbListado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLbListado.setForeground(new java.awt.Color(255, 255, 255));
         jLbListado.setText("Listado de Jugadores:");
         jPanelJugadores.add(jLbListado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
@@ -132,6 +146,9 @@ public class JugadoresFrm extends javax.swing.JFrame {
         jScrollPane.setViewportView(jTable);
 
         jPanelJugadores.add(jScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 460, 120));
+
+        jLbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/cave-in-mountain.png"))); // NOI18N
+        jPanelJugadores.add(jLbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 560, 440));
 
         jMenuIr.setText("Ir a ...");
 
@@ -217,7 +234,7 @@ public class JugadoresFrm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelJugadores, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
+            .addComponent(jPanelJugadores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -326,6 +343,7 @@ public class JugadoresFrm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnIngresar;
     private javax.swing.JLabel jLbApellido;
+    private javax.swing.JLabel jLbFondo;
     private javax.swing.JLabel jLbIngresarJugador;
     private javax.swing.JLabel jLbListado;
     private javax.swing.JLabel jLbNombre;

@@ -5,6 +5,10 @@
  */
 package serpientesescaleras.interfazGrafica;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author CIROSS
@@ -17,6 +21,12 @@ public class Inicio extends javax.swing.JFrame {
     public Inicio() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        
+        //ImageIcon img = new ImageIcon("/serpientesescaleras/interfazGrafica/images/lago-cueva-serpientes.jpg");
+        //Icon icono = new ImageIcon(img.getImage().getScaledInstance(jLbFondo.getWidth(), jLbFondo.getHeight(), Image.SCALE_SMOOTH));
+        //jLbFondo.setIcon(icono);
+        //this.repaint();
     }
 
     /**
@@ -30,24 +40,20 @@ public class Inicio extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLblBienvenida = new javax.swing.JLabel();
-        jLbTitulo = new javax.swing.JLabel();
         jBtnPartida = new javax.swing.JButton();
         jBtnJugadores = new javax.swing.JButton();
+        jLbTitulo = new javax.swing.JLabel();
+        jLbFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-    //  jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLblBienvenida.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLblBienvenida.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLblBienvenida.setForeground(new java.awt.Color(255, 255, 255));
         jLblBienvenida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLblBienvenida.setText("Bienvenidos a:");
-        jPanel1.add(jLblBienvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 100, 450, -1));
-
-        jLbTitulo.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jLbTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLbTitulo.setText("Serpientes y Escaleras");
-        jPanel1.add(jLbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 450, -1));
+        jPanel1.add(jLblBienvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 490, -1));
 
         jBtnPartida.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jBtnPartida.setText("Iniciar Partida");
@@ -56,7 +62,7 @@ public class Inicio extends javax.swing.JFrame {
                 jBtnPartidaActionPerformed(evt);
             }
         });
-        jPanel1.add(jBtnPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, 30));
+        jPanel1.add(jBtnPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, -1, 30));
 
         jBtnJugadores.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jBtnJugadores.setText("Ver Jugadores");
@@ -67,19 +73,24 @@ public class Inicio extends javax.swing.JFrame {
         });
         jPanel1.add(jBtnJugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, -1, 30));
 
+        jLbTitulo.setFont(new java.awt.Font("Comic Sans MS", 3, 30)); // NOI18N
+        jLbTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        jLbTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbTitulo.setText("Serpientes y Escaleras");
+        jPanel1.add(jLbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 490, -1));
+
+        jLbFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/serpientesescaleras/interfazGrafica/images/lago-cueva-serpientes.jpg"))); // NOI18N
+        jPanel1.add(jLbFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 460));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -100,6 +111,7 @@ public class Inicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnJugadores;
     private javax.swing.JButton jBtnPartida;
+    private javax.swing.JLabel jLbFondo;
     private javax.swing.JLabel jLbTitulo;
     private javax.swing.JLabel jLblBienvenida;
     private javax.swing.JPanel jPanel1;
